@@ -1,0 +1,8 @@
+env.fish
+venv/
+env/
+.idea/
+node_modules/
+env.fish
+.idea/
+__pycache__/
