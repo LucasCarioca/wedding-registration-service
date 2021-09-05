@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, Request
 from .routers.registrations import router as registration_router
 from fastapi.middleware.cors import CORSMiddleware
