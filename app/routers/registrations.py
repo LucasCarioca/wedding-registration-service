@@ -17,6 +17,7 @@ class ResigrationRequestBody(BaseModel):
     email: str
     going: bool
     count: int
+    mailing_list_opt_int: bool
 
 
 def get_client():
