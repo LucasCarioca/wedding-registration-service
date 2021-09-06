@@ -21,6 +21,27 @@ spec:
           ports:
             - containerPort: 80
               name: wl-http
+          env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: wedding-registration-service
+                  key: API_KEY
+            - name: CONN_STR
+              valueFrom:
+                secretKeyRef:
+                  name: wedding-registration-service
+                  key: CONN_STR
+            - name: TABLE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: wedding-registration-service
+                  key: TABLE_NAME
+            - name: PARTITION
+              valueFrom:
+                secretKeyRef:
+                  name: wedding-registration-service
+                  key: PARTITION
 ---
 apiVersion: v1
 kind: Service
