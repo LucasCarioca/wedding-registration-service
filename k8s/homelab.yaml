@@ -35,6 +35,7 @@ spec:
   ports:
     - name: tcp
       port: 80
+      nodePort: 30103
       targetPort: ws-http
   selector:
     app: wedding-service
