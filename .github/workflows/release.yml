@@ -39,7 +39,7 @@ jobs:
   deploy-homelab:
     name: Deploy homelab
     runs-on: ubuntu-latest
-    needs: app-build
+    needs: build
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
