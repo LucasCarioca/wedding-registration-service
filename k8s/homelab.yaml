@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: wedding
+  name: wedding-service-deployment
+  labels:
+    app: wedding-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wedding-service
+  template:
+    metadata:
+      labels:
+        app: wedding-service
+    spec:
+      containers:
+        - name: wedding-service
+          image: ghcr.io/lucascarioca/wedding-site-service-page:latest
+          ports:
+            - containerPort: 80
+              name: wl-http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: wedding
+  name: wedding-service-service
+  annotations:
+    metallb.universe.tf/address-pool: default
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.10.0.220
+  ports:
+    - name: tcp
+      port: 80
+      targetPort: ws-http
+  selector:
+    app: wedding-service
