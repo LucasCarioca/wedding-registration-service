@@ -30,8 +30,7 @@ metadata:
   annotations:
     metallb.universe.tf/address-pool: default
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 10.10.0.220
+  type: NodePort
   ports:
     - name: tcp
       port: 80
